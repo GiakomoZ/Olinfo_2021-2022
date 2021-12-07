@@ -19,9 +19,13 @@ int main()
 
     vector <int> gusti(nMuffin);
 
-    for (int j = 0; j<nMuffin; j++)
+    for (int i = 0; i <= nMuffin - nMuffinPrelevabili; i++)
     {
-        fin >> gusti[j];
+        sommaGusti = 0;
+        for (int j = 0; j < nMuffinPrelevabili; j++)
+        {
+            sommaGusti = sommaGusti;
+        }
     }
 
 
