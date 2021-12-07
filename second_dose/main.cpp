@@ -6,7 +6,7 @@ int main()
 {
 
     ifstream fin ("input.txt");
-    ofstream fout ("outputtxt");
+    ofstream fout ("output.txt");
 
     int n1, n2;
     int vac1 [n1];
