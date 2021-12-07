@@ -1,34 +1,47 @@
 #include <bits/stdc++.h>
-
 using namespace std;
+
+#define MAXN 1000000
+#define MINK -1000
+
+
+
+ifstream fin ("input.txt");
+ofstream fout ("output.txt");
+
+
 
 int main()
 {
-    ifstream fin ("input.txt");
-    ofstream fout ("output.txt");
+    int n, k;
+    int i, somma;
 
-    int nMuffin;
-    int nMuffinPrelevabili;
-    int nMuffinDaPrelevare;
-    int sommaGusti;
-    int sommaGustiMax = 0;
-    int posizionePrecedente;
+    fin >> n;
+    fin >> k;
 
-    fin >> nMuffin;
-    fin >> nMuffinPrelevabili;
+    int t[n];
 
-    vector <int> gusti(nMuffin);
-
-    for (int i = 0; i <= nMuffin - nMuffinPrelevabili; i++)
+    for(i=0; i<n;i++)
     {
-        sommaGusti = 0;
-        for (int j = 0; j < nMuffinPrelevabili; j++)
+        fin >> t[i];
+        //cout << t[i]<< endl;
+    }
+    somma = 0;
+    for (i = 0; i < k; i++)
+    {
+        somma = somma + t[i];
+    }
+    int massimo = somma;
+    for (i = k; i < n; i++)
+    {
+        somma = somma + t[i];
+        somma = somma - t[i-k];
+        if(somma > massimo)
         {
-            sommaGusti = sommaGusti;
+            massimo = somma;
         }
     }
 
-
-
-    fout << sommaGustiMax;
+    fout << massimo;
+    return 0;
 }
