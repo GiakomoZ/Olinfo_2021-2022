@@ -9,23 +9,27 @@ int main()
     ofstream fout ("output.txt");
 
     int n1, n2;
-    int vac1 [n1];
-    int vac2 [n2];
 
-    for (int i = 0; i < n1; i++)
+    fin >> n1 >> n2;
+
+    int vac[n1 + n2];
+
+    for (int i=0; i < n1+n2; i++)
     {
-        fin >> vac1[i];
+        fin >> vac[i];
     }
 
-    for (int i = 0; i < n2; i++)
+    sort(vac, vac+n1+n2);
+
+    int conta = 0;
+
+    for (int j = 0; j < n1+n2-1; j++)
     {
-        fin >> vac2[i];
+        if (vac[j] == vac[j++])
+        {
+            conta++;
+        }
     }
 
-    sort (vac1, vac1+n1);
-    sort (vac2, vac2+n2);
-
-    int index1 = 0, index2 = 0, conta = 0;
-
-    cout << vac1;
+    fout << conta;
 }
