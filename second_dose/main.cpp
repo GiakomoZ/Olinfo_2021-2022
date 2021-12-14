@@ -25,7 +25,7 @@ int main()
 
     for (int j = 0; j < n1+n2-1; j++)
     {
-        if (vac[j] == vac[j++])
+        if (vac[j] == vac[j+1])
         {
             conta++;
         }
